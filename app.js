@@ -28,7 +28,7 @@ const item2 = new itemCollection({
   name: "Call mom",
 });
 const item3 = new itemCollection({
-  name: "Prepare presentation on Handwritten digit classification",
+  name: "Prepare presentation",
 });
 
 defaultItems = [item1, item2, item3];
@@ -117,6 +117,30 @@ app.post("/delete", function (req, res) {
       console.log(err);
     });
 });
+
+
+/* update route [post request], every time triggerd at checklist.ejs with + button
+
+    - gets the updated itemId by post request
+    - saves updated item to database
+    - redirects to add route (get request) to display added item.
+
+*/
+app.post("/update/:itemId", function (req, res) {
+  const itemId = req.params.itemId;
+  const updatedItemName = req.body.editedItem;
+
+  itemCollection
+    .findByIdAndUpdate(itemId, { name: updatedItemName }, { new: true })
+    .then(function (updatedItem) {
+      console.log("Successfully updated item in DB -- " + updatedItem.name);
+      res.redirect("/add");
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+});
+
 
 app.listen(5000, function () {
   console.log("Server started on port 5000.");

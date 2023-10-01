@@ -3,20 +3,33 @@
   <h1><%= listTitle %></h1>
 </div>
 <div class="box">
-  <%newListItems.forEach(function(item){ %>
-  <form method="post" action="/delete">
+  <% newListItems.forEach(function(item) { %>
     <div class="item">
-      <input
-        type="checkbox"
-        name="checkbox"
-        value="<%= item._id %>"
-        onchange="this.form.submit()"
-      />
-      <p><%= item.name %></p>
+      <form class="item-form" method="post" action="/delete">
+        <input
+          type="checkbox"
+          name="checkbox"
+          value="<%= item._id %>"
+          onchange="this.form.submit()"
+        />
+      </form>
+      <form class="item-form" method="post" action="/update/<%= item._id %>">
+        <div class="form-container">
+          <input
+            type="text"
+            name="editedItem"
+            value="<%= item.name %>"
+            autocomplete="off"
+            style="width: 100%; display: block;"
+          />
+          <button id="edit" type="submit" name="list"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+        </div>
+      </form>
     </div>
-  </form>
-  <%})%>
+  <% }) %>
 </div>
+
+
 <div class="box">
   <form class="item" action="/add" method="post">
     <input
@@ -25,7 +38,7 @@
       placeholder="New Item"
       autocomplete="off"
     />
-    <button type="submit" name="list">+</button>
+    <button type="submit" name="list"><i class="fa-solid fa-calendar-plus fa-sm"></i></button>
   </form>
 </div>
 <%- include("footer") -%>
