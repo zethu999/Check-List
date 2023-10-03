@@ -2,6 +2,8 @@
 # Check List
 
 Check List is a simple web application that acts like a reminder of the user's daily tasks so that the user can make his day complete without missing a task.
+
+Users can add tasks by entering the task details in the input field and clicking the add button. They can then edit existing tasks by clicking on the task, making the desired changes in the input field and then clicking the edit button next to the task. This will save the edited task.
 ## Tech Stack
 
 **Frontend:** HTML5, CSS3, Bootstrap5, JS
@@ -41,11 +43,11 @@ or
 
 ![App Screenshot](https://github.com/zethu999/Check-List/blob/71a876898271e2b646bb384d82cf1de76f9b8260/photos/1.png?raw=true)
 
-![App Screenshot](https://github.com/zethu999/Check-List/blob/71a876898271e2b646bb384d82cf1de76f9b8260/photos/2.png?raw=true)
+![App Screenshot](https://github.com/zethu999/Check-List/blob/master/photos/5.png?raw=true)
 
-![App Screenshot](https://github.com/zethu999/Check-List/blob/71a876898271e2b646bb384d82cf1de76f9b8260/photos/3.png?raw=true)
+![App Screenshot](https://github.com/zethu999/Check-List/blob/master/photos/6.png?raw=true)
 
-![App Screenshot](https://github.com/zethu999/Check-List/blob/71a876898271e2b646bb384d82cf1de76f9b8260/photos/4.png?raw=true)
+![App Screenshot](https://github.com/zethu999/Check-List/blob/master/photos/7.png?raw=true)
 
 
 
@@ -72,7 +74,7 @@ or
 * header.ejs contains header HTML code and footer.ejs contains footer HTML code.
 * checklist.ejs contains three HTML divs 
     * div 1 - gives the title of the checklist renderd from app.js
-    * div 2 - uses foreach loop to loop through the objects given by the database and for every object creates a checkbox using html forms to perform delete request
+    * div 2 - uses foreach loop to loop through the objects given by the database and for every object creates a checkbox and edit option using html forms to perform delete and edit requests
     * div 3 - performs new task add operation 
 
 ***date.js***
